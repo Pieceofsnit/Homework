@@ -10,13 +10,13 @@ public class EntryZone : MonoBehaviour
     {
         if (colision.TryGetComponent<Player>(out Player player))
         {
+            _alarm.ChangeVolumeSound();
             _alarm.PlaySound();
-            StartCoroutine(_alarm.ChangeVolumeSound());
         }
     }
 
     private void OnTriggerExit(Collider colision)
     {
-        StartCoroutine(_alarm.ChangeVolumeSound());
+        _alarm.ChangeVolumeSound();
     }
 }

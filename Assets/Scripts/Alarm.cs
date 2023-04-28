@@ -20,18 +20,20 @@ public class Alarm : MonoBehaviour
 
     public void StopSound()
     {
+        _targetValue = _minVolume;
         _audioSource.Stop();
     }
 
-    public IEnumerator ChangeVolumeSound()
+    private IEnumerator ChangeVolumeSound()
     {
+        StartCoroutine(ChangeVolumeSound);
+
         while (_targetValue != _currValue)
         {
             _currValue = Mathf.MoveTowards(_currValue, _targetValue, _recoveryRate * Time.deltaTime);
             _audioSource.volume = _currValue;
             yield return null;
         }
-        _targetValue = _minVolume;
 
         if (_currValue == _minVolume)
         {
