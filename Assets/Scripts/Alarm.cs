@@ -18,11 +18,6 @@ public class Alarm : MonoBehaviour
         _audioSource.Play();
     }
 
-    public void PlaySound()
-    {
-        audioSource.Play();
-    }
-
     public void StopSound()
     {
         _audioSource.Stop();
@@ -36,7 +31,6 @@ public class Alarm : MonoBehaviour
             _audioSource.volume = _currValue;
             yield return null;
         }
-
         _targetValue = _minVolume;
 
         if (_currValue == _minVolume)
