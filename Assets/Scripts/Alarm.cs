@@ -33,7 +33,7 @@ public class Alarm : MonoBehaviour
         _volumeChange = StartCoroutine(ChangeVolumeSound());
     }
 
-    public IEnumerator ChangeVolumeSound()
+    private IEnumerator ChangeVolumeSound()
     {
         if (_targetValue > _minVolume)
             PlaySound();
