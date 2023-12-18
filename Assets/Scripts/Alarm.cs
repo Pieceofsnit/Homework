@@ -43,9 +43,9 @@ public class Alarm : MonoBehaviour
             _currValue = Mathf.MoveTowards(_currValue, _targetValue, _recoveryRate * Time.deltaTime);
             _audioSource.volume = _currValue;
             yield return null;
-            
-            if(_currValue == _minVolume)
-                StopSound();
         }
+            
+        if(_currValue == _minVolume)
+            StopSound();
     }
 }
